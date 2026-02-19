@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Etiquetas Pedidos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34fe128a4107e3a9bafbc9470b9a76371981bb63")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8eae368f9bc5117485d1e8ce633e5fcf88d98084")]
 [assembly: System.Reflection.AssemblyProductAttribute("Etiquetas Pedidos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Etiquetas Pedidos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
