@@ -4,7 +4,7 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace Etiquetas_Pedidos.Services
 {
-    internal class FormView
+    internal class FormViews
     {
         public List<Order> ListaPedidosAbertos(OracleConnection connection)
         {
