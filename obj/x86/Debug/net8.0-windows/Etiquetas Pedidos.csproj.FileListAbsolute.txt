@@ -1,0 +1,80 @@
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Etiquetas Pedidos.exe
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Etiquetas Pedidos.deps.json
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Etiquetas Pedidos.runtimeconfig.json
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Etiquetas Pedidos.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Etiquetas Pedidos.pdb
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Oracle.ManagedDataAccess.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\System.DirectoryServices.Protocols.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\System.IO.Pipelines.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\System.Text.Encodings.Web.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\System.Text.Json.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runtimes\linux\lib\net8.0\System.DirectoryServices.Protocols.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runtimes\osx\lib\net8.0\System.DirectoryServices.Protocols.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.DirectoryServices.Protocols.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.csproj.AssemblyReference.cache
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Interop.bpac.dll
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.csproj.ResolveComReference.cache
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas_Pedidos.FormEtiquetaPedidos.resources
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.csproj.GenerateResource.cache
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.AssemblyInfoInputs.cache
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.AssemblyInfo.cs
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.csproj.CoreCompileInputs.cache
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiqueta.84B3C786.Up2Date
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.dll
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\refint\Etiquetas Pedidos.dll
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.pdb
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.genruntimeconfig.cache
+D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\ref\Etiquetas Pedidos.dll
+D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\appconfig.json
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Etiquetas Pedidos.exe
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\appconfig.json
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Etiquetas Pedidos.deps.json
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Etiquetas Pedidos.runtimeconfig.json
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Etiquetas Pedidos.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Etiquetas Pedidos.pdb
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Oracle.ManagedDataAccess.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\System.DirectoryServices.Protocols.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\System.IO.Pipelines.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\System.Text.Encodings.Web.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\System.Text.Json.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runtimes\linux\lib\net8.0\System.DirectoryServices.Protocols.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runtimes\osx\lib\net8.0\System.DirectoryServices.Protocols.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.DirectoryServices.Protocols.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.csproj.AssemblyReference.cache
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Interop.bpac.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.csproj.ResolveComReference.cache
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas_Pedidos.FormEtiquetaPedidos.resources
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.csproj.GenerateResource.cache
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.AssemblyInfoInputs.cache
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.AssemblyInfo.cs
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.csproj.CoreCompileInputs.cache
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiqueta.84B3C786.Up2Date
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\refint\Etiquetas Pedidos.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.pdb
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.genruntimeconfig.cache
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\ref\Etiquetas Pedidos.dll
