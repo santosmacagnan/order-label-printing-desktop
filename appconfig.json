@@ -1,0 +1,8 @@
+{
+  "ConnectionStrings": {
+    "ConexaoOracle": "User Id=CIGAM;Password=CIGAM;Data Source=//DESKTOP-8NV9PH4:1521/XE;"
+  },
+  "Printers": {
+    "PrinterLabel": "QL-700"
+  }
+}
