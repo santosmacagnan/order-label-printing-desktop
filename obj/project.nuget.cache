@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Un1T1pKa594=",
+  "dgSpecHash": "mNXzphaC6+I=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Santo\\source\\repos\\Etiquetas Pedidos\\Etiquetas Pedidos.csproj",
+  "projectFilePath": "C:\\Users\\Santo\\source\\repos\\Etiquetas Pedidos\\order-label-printing-desktop\\Etiquetas Pedidos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Santo\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.8\\microsoft.extensions.configuration.9.0.8.nupkg.sha512",
     "C:\\Users\\Santo\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.8\\microsoft.extensions.configuration.abstractions.9.0.8.nupkg.sha512",
