@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "ConexaoOracle": "User Id=CIGAM;Password=cigam;Data Source=//DESKTOP-FSVNBP5:1521/XE;"
+  }
+}
