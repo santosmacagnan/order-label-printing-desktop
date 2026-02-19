@@ -13,6 +13,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="order-label-printing-desktop\**" />
+    <EmbeddedResource Remove="order-label-printing-desktop\**" />
+    <None Remove="order-label-printing-desktop\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="appconfig.json" />
   </ItemGroup>
 
