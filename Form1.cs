@@ -57,7 +57,7 @@ namespace Etiquetas_Pedidos
                     conn.Open();
 
                     // aqui você chama a rotina que busca os pedidos
-                    FormView formView = new();
+                    FormViews formView = new();
                     List<Order> lista = formView.ListaPedidosAbertos(conn);
 
                     BoxOrdersOpened.DataSource = lista;
@@ -105,7 +105,7 @@ namespace Etiquetas_Pedidos
                         List<OrderItens> listOrdersItens = consults.OrderItens(nome, connection);
 
                         DtgdVwItensPedido.DataSource = listOrdersItens;
-                        FormView form = new();
+                        FormViews form = new();
 
                         form.Colunasdatagrid(DtgdVwItensPedido);
 
@@ -270,7 +270,7 @@ namespace Etiquetas_Pedidos
                         List<OrderItens> listOrdersItens = consults.OrderItens(code, connection);
 
                         DtgdVwItensPedido.DataSource = listOrdersItens;
-                        FormView form = new();
+                        FormViews form = new();
 
                         form.Colunasdatagrid(DtgdVwItensPedido);
 
