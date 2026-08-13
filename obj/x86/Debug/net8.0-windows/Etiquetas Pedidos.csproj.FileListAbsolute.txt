@@ -38,6 +38,9 @@ D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.pdb
 D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.genruntimeconfig.cache
 D:\Projects\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\ref\Etiquetas Pedidos.dll
 D:\Projects\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\appconfig.json
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.csproj.AssemblyReference.cache
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Interop.bpac.dll
+C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.csproj.ResolveComReference.cache
 C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Etiquetas Pedidos.exe
 C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\appconfig.json
 C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\Etiquetas Pedidos.deps.json
@@ -63,9 +66,6 @@ C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runti
 C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.DirectoryServices.Protocols.dll
 C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Santo\source\repos\Etiquetas Pedidos\bin\x86\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
-C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.csproj.AssemblyReference.cache
-C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Interop.bpac.dll
-C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.csproj.ResolveComReference.cache
 C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas_Pedidos.FormEtiquetaPedidos.resources
 C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.csproj.GenerateResource.cache
 C:\Users\Santo\source\repos\Etiquetas Pedidos\obj\x86\Debug\net8.0-windows\Etiquetas Pedidos.GeneratedMSBuildEditorConfig.editorconfig

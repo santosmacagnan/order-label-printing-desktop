@@ -1,6 +1,8 @@
 ﻿using Etiquetas_Pedidos.Model;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Etiquetas_Pedidos.Data
 {
@@ -47,7 +49,6 @@ namespace Etiquetas_Pedidos.Data
                 return listOrdesOpened;
             }
         }
-
         public List<OrderItens> OrderItens(string orderCode, OracleConnection connection)
         {
             if (connection == null)
@@ -59,6 +60,7 @@ namespace Etiquetas_Pedidos.Data
             {
                 string query = @"select PRO.CD_REDUZIDO, FAT.CD_ESPECIF1, PRO.DESCRICAO, FAT.DESCRICAO AS OBS, FAT.QUANTIDADE, PRO.CD_UNIDADE_MEDI, IDENT.CD_CARAC FROM FAITEMPE  FAT INNER JOIN ESMATERI PRO ON FAT.CD_MATERIAL = PRO.CD_MATERIAL LEFT join PPIDENT IDENT ON IDENT.IDENTIFICADOR = FAT.CD_ESPECIF1 WHERE FAT.CD_PEDIDO = '" + orderCode + "\'";
                 listItensOrder = new List<OrderItens>();
+
                 using (OracleCommand command = new(query, connection))
                 {
                     if (connection.State != ConnectionState.Open) connection.Open();
@@ -141,7 +143,6 @@ namespace Etiquetas_Pedidos.Data
             }
             return retorno = System.Text.RegularExpressions.Regex.Replace(retorno, @"\s+", " ").Trim();
         }
-   
         public Order OrderCode(string orderCode, OracleConnection connection)
         {
             if (connection == null)
@@ -178,6 +179,85 @@ namespace Etiquetas_Pedidos.Data
                 }
                 return pedido;
             }
+        }
+        public static Itens SearchIten(int reduzido, OracleConnection connection)
+        {
+            if (connection == null)
+            {
+                MessageBox.Show("Conexão com o banco de dados não estabelecida.", "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            try
+            {
+                string query = @"SELECT DESCRICAO, CD_UNIDADE_MEDI FROM ESMATERI WHERE CD_REDUZIDO = " + reduzido;
+                
+                using (OracleCommand command = new(query, connection))
+                {
+                    if (connection.State != ConnectionState.Open) connection.Open();
+                    using (OracleDataReader reader = command.ExecuteReader())
+                    {
+                        string CodeReduced, Description, Unit;
+
+                        if (!reader.HasRows)
+                        {
+                            MessageBox.Show("Nenhum item encontrado", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return null;
+                        }
+                        
+                        while (reader.Read())
+                        {
+                            Description = reader["DESCRICAO"].ToString();
+                            Unit = reader["CD_UNIDADE_MEDI"].ToString();
+                            Itens iten = new Itens(reduzido,Description,Unit); 
+                            return iten;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao consultar itens do pedido: {ex.Message}");
+                return null;
+            }
+            return null;
+        }
+        public static List<string> Client (string client, OracleConnection connection)
+        {
+            if (connection == null)
+            {
+                MessageBox.Show("Conexão com o banco de dados não estabelecida.", "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            try
+            {
+                string query = @"SELECT NOME_COMPLETO FROM GEEMPRES WHERE NOME_COMPLETO LIKE '%"+ client+"%'";
+                using (OracleCommand command = new(query, connection))
+                {
+                    if (connection.State != ConnectionState.Open) connection.Open();
+                    using (OracleDataReader reader = command.ExecuteReader())
+                    {
+                       var ClientName = new List<string>();
+                        if (!reader.HasRows)
+                        {
+                            MessageBox.Show("Nenhum cliente encontrado", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return null;
+                        }
+                        while (reader.Read())
+                        {
+                            ClientName.Add(reader["NOME_COMPLETO"].ToString());
+                           
+                            // Return or process the client name as needed
+                        }
+                        return ClientName;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao consultar cliente: {ex.Message}");
+                return null;
+            }
+            return null; // Adjust return type and value as needed
         }
     }
 }

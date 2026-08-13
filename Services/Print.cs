@@ -1,17 +1,23 @@
 ﻿using bpac;
 using Etiquetas_Pedidos.Data;
 using Etiquetas_Pedidos.Model;
-using Microsoft.Extensions.Configuration;
 using Oracle.ManagedDataAccess.Client;
 using System.Text;
-using System.Linq;
 
 namespace Etiquetas_Pedidos.Services
 {
     internal class Print
     {
         private string order, company;
-        private void HeaderLabel(ComboBox combo)
+        public void HeaderLabel(String Client)
+        {
+            if (!string.IsNullOrWhiteSpace(Client))
+            {
+                order = "";
+                company = Client;
+            }
+        }
+        public void HeaderLabel(ComboBox combo)
         {
             if (combo.SelectedItem is Order pedidoSelecionado)
             {
@@ -21,17 +27,9 @@ namespace Etiquetas_Pedidos.Services
             }
             else if (combo.Text.Length > 0)
             {
-                var builder = new ConfigurationBuilder()
-            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appconfig.json", optional: false, reloadOnChange: true);
-
-                IConfiguration config = builder.Build();
-
-                string connectionString = config.GetConnectionString("ConexaoOracle");
                 try
-
                 {
-                    using (var connection = new OracleConnection(connectionString))
+                    using (var connection = new OracleConnection(AppConfig.ConnectionString))
                     {
                         string code = combo.Text.Split('-')[0].Trim();
                         Consults consults = new();
@@ -46,64 +44,25 @@ namespace Etiquetas_Pedidos.Services
                 }
             }
         }
-        public void PrintAmostra(string client, string description)
+        public void PrintBrotherQL(ListView itens)
         {
-            var builder = new ConfigurationBuilder()
-            .SetBasePath(AppContext.BaseDirectory)
-            .AddJsonFile("appconfig.json", optional: false, reloadOnChange: true);
-            IConfiguration config = builder.Build();
-
-            const string templateFilePath = "amostra.lbx";
-            const string templateAtualizadoFilePath = "amostragerado.lbx";
-            string? printerName = config["Printers:PrinterLabel"];
-            if (string.IsNullOrWhiteSpace(printerName))
-            {
-                MessageBox.Show("Impressora não configurada.");
-                return;
-            }
-
-            bpac.Document doc = null;
-            try
-            {
-                doc = new bpac.Document();
-                doc.Open(templateFilePath);
-                doc.SetPrinter(printerName, true);
-                doc.GetObject("$CLIENTE").Text = client;
-                doc.GetObject("$DESCRICAO").Text = description;
-                doc.SaveAs(ExportType.bexLbx, templateAtualizadoFilePath);
-                doc.StartPrint("", PrintOptionConstants.bpoDefault);
-                doc.PrintOut(1, PrintOptionConstants.bpoDefault);
-                doc.EndPrint();
-                doc.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao imprimir etiquetas: " + ex.Message);
-            }
-        }
-        public void PrintBrotherQL(ComboBox combo, ListView itens)
-        {
-            var builder = new ConfigurationBuilder()
-            .SetBasePath(AppContext.BaseDirectory) 
-            .AddJsonFile("appconfig.json", optional: false, reloadOnChange: true);
-            IConfiguration config = builder.Build();
-
             const string templateFilePath = "embalagem.lbx";
             const string templateAtualizadoFilePath = "embalagemgerado.lbx";
 
-            string? printerName = config["Printers:PrinterLabel"];
+            string? printerName = AppConfig.PrinterLabel;
             if (string.IsNullOrWhiteSpace(printerName))
             {
                 MessageBox.Show("Impressora não configurada.");
                 return;
             }
-            HeaderLabel(combo);
+
             bpac.Document doc = null;
             try
             {
                 doc = new bpac.Document();
                 doc.Open(templateFilePath);
                 doc.SetPrinter(printerName, true);
+  
                 doc.GetObject("$PEDIDO").Text = order;
                 doc.GetObject("$CLIENTE").Text = company;
 

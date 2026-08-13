@@ -14,8 +14,11 @@
 
   <ItemGroup>
     <Compile Remove="order-label-printing-desktop\**" />
+    <Compile Remove="Setup\**" />
     <EmbeddedResource Remove="order-label-printing-desktop\**" />
+    <EmbeddedResource Remove="Setup\**" />
     <None Remove="order-label-printing-desktop\**" />
+    <None Remove="Setup\**" />
   </ItemGroup>
 
   <ItemGroup>

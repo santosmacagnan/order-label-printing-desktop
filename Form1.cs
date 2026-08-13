@@ -3,7 +3,7 @@ using Etiquetas_Pedidos.Model;
 using Etiquetas_Pedidos.Services;
 using Microsoft.Extensions.Configuration;
 using Oracle.ManagedDataAccess.Client;
-using Timer = System.Windows.Forms.Timer;
+
 namespace Etiquetas_Pedidos
 {
     public partial class FormEtiquetaPedidos : Form
@@ -12,32 +12,19 @@ namespace Etiquetas_Pedidos
         public FormEtiquetaPedidos()
         {
             InitializeComponent();
+            AppConfig.Initialize();
         }
         private void FormEtiquetaPedidos_Load(object sender, EventArgs e)
         {
-            var builder = new ConfigurationBuilder()
-            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appconfig.json", optional: false, reloadOnChange: true);
-
-            IConfiguration config = builder.Build();
-
-            string connectionString = config.GetConnectionString("ConexaoOracle");
             try
-
             {
-                using (var connection = new OracleConnection(connectionString))
+                using (var connection = new OracleConnection(AppConfig.ConnectionString))
                 {
                     connection.Open();
                     label2.Text = "Conectado";
                     label2.BackColor = Color.Green;
                     label2.ForeColor = Color.White;
-                    ListaPedidosAbertos(connectionString);
-                    Timer timer = new()
-                    {
-                        Interval = 1800000 // Intervalo de 30 minutos (30 * 60 * 1000 milissegundos)
-                    };
-                    timer.Tick += (s, args) => ListaPedidosAbertos(connectionString);
-                    timer.Start();
+                    ListaPedidosAbertos(AppConfig.ConnectionString);
                 }
             }
             catch (Exception ex)
@@ -91,15 +78,7 @@ namespace Etiquetas_Pedidos
                 if (pedidoSelecionado.OrderCode != "Selecione um pedido")
                 {
                     string nome = pedidoSelecionado.OrderCode;
-                    var builder = new ConfigurationBuilder()
-                    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                    .AddJsonFile("appconfig.json", optional: false, reloadOnChange: true);
-
-                    IConfiguration config = builder.Build();
-
-                    string connectionString = config.GetConnectionString("ConexaoOracle");
-
-                    using (var connection = new OracleConnection(connectionString))
+                    using (var connection = new OracleConnection(AppConfig.ConnectionString))
                     {
                         Consults consults = new();
                         List<OrderItens> listOrdersItens = consults.OrderItens(nome, connection);
@@ -231,22 +210,15 @@ namespace Etiquetas_Pedidos
         private void PrintBtn_Click(object sender, EventArgs e)
         {
             var print = new Print();
-            print.PrintBrotherQL(BoxOrdersOpened, LstVolumes);
-        }
-        private void BtnPrintAmostra_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(TxtCliente.Text) || string.IsNullOrWhiteSpace(TxtDescricao.Text))
+            if (chkBxCliente.Checked)
             {
-                MessageBox.Show("Por favor, preencha os campos Cliente e Descrição para imprimir a amostra.", "Faltando Informação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                print.HeaderLabel(cmbClient.SelectedText);
             }
-            var print = new Print();
-            print.PrintAmostra(TxtCliente.Text, TxtDescricao.Text);
-        }
-        private void BtnClear_Click(object sender, EventArgs e)
-        {
-            TxtCliente.Clear();
-            TxtDescricao.Clear();
+            else
+            {
+                print.HeaderLabel(BoxOrdersOpened);
+            }
+            print.PrintBrotherQL(LstVolumes);
         }
         private void BoxOrdersOpened_KeyDown(object sender, KeyEventArgs e)
         {
@@ -256,15 +228,8 @@ namespace Etiquetas_Pedidos
                 {
                     string selected = BoxOrdersOpened.Text;
                     string code = selected.Split('-')[0].Trim();
-                    var builder = new ConfigurationBuilder()
-                    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                    .AddJsonFile("appconfig.json", optional: false, reloadOnChange: true);
 
-                    IConfiguration config = builder.Build();
-
-                    string connectionString = config.GetConnectionString("ConexaoOracle");
-
-                    using (var connection = new OracleConnection(connectionString))
+                    using (var connection = new OracleConnection(AppConfig.ConnectionString))
                     {
                         Consults consults = new();
                         List<OrderItens> listOrdersItens = consults.OrderItens(code, connection);
@@ -296,15 +261,79 @@ namespace Etiquetas_Pedidos
             if (ret == true)
                 PrintBtn.Enabled = true;
         }
-
-        private void DtgdVwItensPedido_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgViewAvulso_MouseDown(object sender, MouseEventArgs e)
         {
+            dragStart = e.Location;
+        }
+        private void dtgViewAvulso_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
 
+            // Só inicia se mover mais de 5px
+            if (Math.Abs(e.X - dragStart.X) <= 5 && Math.Abs(e.Y - dragStart.Y) <= 5) return;
+
+            int rowIndex = dtgViewAvulso.HitTest(e.X, e.Y).RowIndex;
+            if (rowIndex < 0) return;
+
+            // Se estiver editando, finaliza e força foco no grid
+            if (dtgViewAvulso.IsCurrentCellInEditMode)
+            {
+                dtgViewAvulso.EndEdit();
+                dtgViewAvulso.Focus();
+            }
+
+            // Seleciona a linha clicada
+            dtgViewAvulso.ClearSelection();
+            dtgViewAvulso.Rows[rowIndex].Selected = true;
+
+            var r = dtgViewAvulso.Rows[rowIndex];
+
+            string[] dados = [
+                              $"{r.Cells["Code"].Value} {r.Cells["Description"].Value}",
+                              $"{r.Cells["Quantity"].Value} {r.Cells["Unit"].Value}",
+                              r.Cells["Obs"].Value?.ToString() ?? "",
+                              r.Cells["Null"].Value?.ToString() ??""
+            ];
+
+            dtgViewAvulso.DoDragDrop(dados, DragDropEffects.Copy);
+        }
+        private void dtgViewAvulso_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            {
+                if (dtgViewAvulso.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    using (var connection = new OracleConnection(AppConfig.ConnectionString))
+                    {
+                        Itens item = new();
+                        item = Consults.SearchIten(int.Parse(dtgViewAvulso.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()), connection);
+                        dtgViewAvulso.Rows[e.RowIndex].Cells["Description"].Value = item.Descricao;
+                        dtgViewAvulso.Rows[e.RowIndex].Cells["Unit"].Value = item.Unidade;
+                        MessageBox.Show("Cell value changed to: " + dtgViewAvulso.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                    }
+                }
+            }
+        }
+        private void chkBxCliente_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (chkBxCliente.Checked)
+            {
+                cmbClient.Enabled = true;
+            }
+            else
+            {
+                cmbClient.Enabled = false;
+            }
         }
 
-        private void BoxOrdersOpened_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbClient_TextChanged(object sender, EventArgs e)
         {
+            if (cmbClient.Text.Length > 3) {
+                using (var connection = new OracleConnection(AppConfig.ConnectionString)) {
+                    cmbClient.DataSource = Consults.Client(cmbClient.Text, connection);
 
+                }
+            }
         }
     }
 }
