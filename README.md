@@ -1,31 +1,57 @@
-📦 Order Label Printing System
+# 📦 Order Label Printing System
+
+![.NET](https://img.shields.io/badge/.NET-8-512BD4?style=flat&logo=dotnet&logoColor=white)
+![C%23](https://img.shields.io/badge/C%23-12-239120?style=flat&logo=csharp&logoColor=white)
+![WinForms](https://img.shields.io/badge/UI-WinForms-0078D6?style=flat&logo=windows&logoColor=white)
+![Oracle](https://img.shields.io/badge/Database-Oracle-F80000?style=flat&logo=oracle&logoColor=white)
+
+🌐 [Leia em Português](README.pt-BR.md)
 
 ## Project Overview
-Desktop application developed to optimize the logistics process of order label printing, integrating an Oracle database with industrial label printers.
-The system automates open order retrieval, item grouping, and label generation, reducing manual errors and improving operational reliability.
+
+Desktop application developed to optimize the logistics process of order label printing, integrating an Oracle database with industrial label printers. The system automates open order retrieval, item grouping, and label generation, reducing manual errors and improving operational reliability.
+
+## Highlights
+
+- Layered architecture separating UI, data access, configuration, and hardware integration
+- Direct Oracle database integration via `Oracle.ManagedDataAccess.Client`
+- Hardware integration with the Brother bpac SDK for real label printing
+- Background timer-based refresh mechanism for live order updates
+- Drag-and-drop grouping UX for building multi-item, multi-volume labels
+
+## Screenshots
+
+<!-- TODO: add screenshots from the /ScreenShots folder, e.g.: -->
+<!-- ![Main window](ScreenShots/main-window.png) -->
 
 ## Features
+
 - Automatic retrieval of open orders
 - Automatic refresh every 30 minutes
 - Drag-and-drop item grouping per label
 - Multi-volume label generation
 - Real-time database connection monitoring
-- Printing via .lbx templates
-- Dedicated tab for sample labels
+- Printing via `.lbx` templates
+- Dedicated tab for loose items
 
 ## Architecture
+
 The application follows a layered structure to improve organization and maintainability:
-- Presentation Layer – WinForms UI
-- Data Access Layer – Oracle integration
-- Configuration Layer – External JSON configuration
-- Hardware Integration – Brother bpac SDK
-- Applied practices:
+
+- **Presentation Layer** – WinForms UI
+- **Data Access Layer** – Oracle integration
+- **Configuration Layer** – External JSON configuration
+- **Hardware Integration** – Brother bpac SDK
+
+Applied practices:
+
 - Separation of concerns
 - Externalized configuration
 - Modularized grouping logic
 - Timed background refresh mechanism
 
-## Tecnologies
+## Built With
+
 - .NET 8
 - C# 12
 - Windows Forms
@@ -34,105 +60,49 @@ The application follows a layered structure to improve organization and maintain
 - Brother bpac SDK
 - Visual Studio
 
-## Tech Stack
-- .NET 8 SDK
-- Oracle database access
+## Prerequisites
+
+- .NET 8 SDK installed
+- Access to an Oracle database
 - Brother printer driver installed
-- Valid .lbx template
+- A valid `.lbx` label template
 
 ## Configuration
-Create an appconfig.json file in the executable directory:
-<pre>```json
+
+Create an `appconfig.json` file in the executable directory:
+
+```json
 {
   "ConnectionStrings": {
-    "OracleDb": "User Id=ADM;Password=adm;Data Source=//HOST:1521/XE"
+    "OracleDb": "User Id=<username>;Password=<password>;Data Source=//HOST:1521/XE"
   },
   "Printers": {
     "DefaultPrinter": "QL-700"
   }
 }
-</pre>
-## Runnig the Application
+```
+
+## Running the Application
+
 1. Clone the repository
-2. Configure appconfig.json
-3. Install printer driver
-4. Run via Visual Studio or terminal:
+2. Configure `appconfig.json`
+3. Install the printer driver
+4. Run via Visual Studio or terminal
 
 ## Implemented Improvements
+
 - Refactored label grouping logic
 - Replaced manual search with interactive order selection
 - Implemented automatic order refresh mechanism
 - Improved multi-label generation workflow
 - Added keyboard shortcut for deletion
 - Implemented real-time database connection monitoring
+- Replaced the Samples tab with a Loose Items tab, allowing system-grouped items and manually added items in the same label group
+- Updated open orders refresh to trigger on every search
+- Added customer name field for loose label generation
 
--------
-📦 Sistema de Impressão de Etiquetas de Pedidos
+## Contact
 
-## Objetivo do Projeto
-Aplicação desktop desenvolvida para otimizar o processo logístico de impressão de etiquetas de pedidos, integrando base de dados Oracle e impressoras industriais.
-O sistema automatiza a consulta de pedidos em aberto, organização e geração de etiquetas, reduzindo os erros manuais e aumentando a confiabilidade operacional
-
-## Funcionalidades
-- Listagem automática de pedidos abertos
-- Atualização periódica da lista (30 min)
-- Agrupamento de itens por etiqueta via drag-and-drop
-- Geração de múltiplas etiquetas por volume
-- Monitoramento em tempo real da conexão com banco
-- Impressão via template `.lbx`
-- Aba dedicada para etiquetas de amostra
-
-## Arquitetura
-A aplicação segue uma estrutura em camadas visando organização e manutenibilidade:
-- Camada de Apresentação – Interface WinForms
-- Camada de Acesso a Dados – Integração com Oracle
-- Camada de Configuração – Arquivo JSON externo
-- Integração com Hardware – SDK Brother bpac
-- Boas práticas aplicadas:
-- Separação de responsabilidades
-- Configuração externalizada
-- Modularização da lógica de agrupamento
-- Atualização automática via mecanismo temporizado
-
-## Tecnologias
-- .NET 8
-- C# 12
-- Windows Forms
-- Oracle Database
-- Oracle.ManagedDataAccess.Client
-- Brother bpac SDK
-- Visual Studio
-
-## Requisitos
-- .NET 8 SDK
-- Acesso ao banco Oracle
-- Driver da impressora Brother instalado
-- Template .lbx válido
-
-## Configuração
-Criar arquivo appconfig.json na pasta do executável:
-<pre>```json
-{
-  "ConnectionStrings": {
-    "OracleDb": "User Id=ADM;Password=adm;Data Source=//HOST:1521/XE"
-  },
-  "Printers": {
-    "DefaultPrinter": "QL-700"
-  }
-}
-</pre>
-
-## Executar
-1. Clonar o repositório
-2. Configurar `appconfig.json`
-3. Instalar driver da impressora
-4. Executar pelo Visual Studio ou terminal
-
-## Melhorias Implementadas
-- Refatoração da lógica de agrupamento de etiquetas
-- Substituição de busca manual por seleção interativa (ComboBox)
-- Implementação de atualização automática de pedidos
-- Melhoria do fluxo para geração de múltiplas etiquetas
-- Implementação de atalho de teclado
-- Monitoramento em tempo real da conexão com banco
-
+- GitHub: [@santosmacagnan](https://github.com/santosmacagnan)
+- LinkedIn: `<add your link>`
+- Portfolio: `<add your link, if any>`
