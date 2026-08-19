@@ -221,7 +221,7 @@ namespace Etiquetas_Pedidos.Data
             }
             return null;
         }
-        public static List<string> Client (string client, OracleConnection connection)
+        public static List<string> Client (OracleConnection connection)
         {
             if (connection == null)
             {
@@ -230,7 +230,8 @@ namespace Etiquetas_Pedidos.Data
             }
             try
             {
-                string query = @"SELECT NOME_COMPLETO FROM GEEMPRES WHERE NOME_COMPLETO LIKE '%"+ client+"%'";
+                //string query = @"SELECT NOME_COMPLETO FROM GEEMPRES WHERE NOME_COMPLETO LIKE '%"+ client+"%'";
+                string query = @"SELECT NOME_COMPLETO FROM GEEMPRES WHERE DIVISAO='01'";
                 using (OracleCommand command = new(query, connection))
                 {
                     if (connection.State != ConnectionState.Open) connection.Open();

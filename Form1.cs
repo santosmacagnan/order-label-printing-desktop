@@ -3,12 +3,14 @@ using Etiquetas_Pedidos.Model;
 using Etiquetas_Pedidos.Services;
 using Microsoft.Extensions.Configuration;
 using Oracle.ManagedDataAccess.Client;
+using System.Collections.Generic;
 
 namespace Etiquetas_Pedidos
 {
     public partial class FormEtiquetaPedidos : Form
     {
         private Point dragStart;
+        List<string> clients = new List<string>();
         public FormEtiquetaPedidos()
         {
             InitializeComponent();
@@ -34,6 +36,10 @@ namespace Etiquetas_Pedidos
                 label2.BackColor = Color.Red;
                 label2.ForeColor = Color.White;
             }
+
+
+
+
         }
         public void ListaPedidosAbertos(string connectionString)
         {
@@ -212,7 +218,7 @@ namespace Etiquetas_Pedidos
             var print = new Print();
             if (chkBxCliente.Checked)
             {
-                print.HeaderLabel(cmbClient.SelectedText);
+                print.HeaderLabel(txtClient.Text);
             }
             else
             {
@@ -245,6 +251,10 @@ namespace Etiquetas_Pedidos
                     }
                 }
                 PrintBtn.Enabled = false;
+            }
+            if (BoxOrdersOpened.DroppedDown)
+            {
+               BoxOrdersOpened.DroppedDown = false;
             }
 
         }
@@ -289,7 +299,7 @@ namespace Etiquetas_Pedidos
             var r = dtgViewAvulso.Rows[rowIndex];
 
             string[] dados = [
-                              $"{r.Cells["Code"].Value} {r.Cells["Description"].Value}",
+                              $"{r.Cells["Code"].Value} -  {r.Cells["Description"].Value}",
                               $"{r.Cells["Quantity"].Value} {r.Cells["Unit"].Value}",
                               r.Cells["Obs"].Value?.ToString() ?? "",
                               r.Cells["Null"].Value?.ToString() ??""
@@ -309,7 +319,6 @@ namespace Etiquetas_Pedidos
                         item = Consults.SearchIten(int.Parse(dtgViewAvulso.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()), connection);
                         dtgViewAvulso.Rows[e.RowIndex].Cells["Description"].Value = item.Descricao;
                         dtgViewAvulso.Rows[e.RowIndex].Cells["Unit"].Value = item.Unidade;
-                        MessageBox.Show("Cell value changed to: " + dtgViewAvulso.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
                     }
                 }
             }
@@ -318,22 +327,31 @@ namespace Etiquetas_Pedidos
         {
             if (chkBxCliente.Checked)
             {
-                cmbClient.Enabled = true;
+                txtClient.Enabled = true;
+                using (var connection = new OracleConnection(AppConfig.ConnectionString))
+                {
+                    clients = Consults.Client(connection);
+
+                }
+                txtClient.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                txtClient.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtClient.AutoCompleteCustomSource.Clear();
+                txtClient.AutoCompleteCustomSource.AddRange(clients.ToArray());
             }
             else
             {
-                cmbClient.Enabled = false;
+                txtClient.Enabled = false;
+                txtClient.Clear();
+                txtClient.AutoCompleteCustomSource.Clear();
             }
         }
 
-        private void cmbClient_TextChanged(object sender, EventArgs e)
+        private void BoxOrdersOpened_MouseDown(object sender, MouseEventArgs e)
         {
-            if (cmbClient.Text.Length > 3) {
-                using (var connection = new OracleConnection(AppConfig.ConnectionString)) {
-                    cmbClient.DataSource = Consults.Client(cmbClient.Text, connection);
+            Cursor.Current = Cursors.WaitCursor;
+            ListaPedidosAbertos(AppConfig.ConnectionString);
+            Cursor.Current = Cursors.Default;
 
-                }
-            }
         }
     }
 }

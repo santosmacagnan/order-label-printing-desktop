@@ -104,5 +104,5 @@ Crie um arquivo `appconfig.json` na pasta do executável:
 ## Contato
 
 - GitHub: [@santosmacagnan](https://github.com/santosmacagnan)
-- LinkedIn: `<adicione seu link>`
+- LinkedIn: [Santo S. Macagnan](https://www.linkedin.com/in/santo-segundo-macagnan-74b38643/)
 - Portfólio: `<adicione seu link, se tiver>`

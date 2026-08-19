@@ -33,7 +33,7 @@
             tabPage1 = new TabPage();
             DtgdVwItensPedido = new DataGridView();
             tabPage2 = new TabPage();
-            cmbClient = new ComboBox();
+            txtClient = new TextBox();
             chkBxCliente = new CheckBox();
             dtgViewAvulso = new DataGridView();
             Code = new DataGridViewTextBoxColumn();
@@ -67,7 +67,7 @@
             tabControl1.Margin = new Padding(2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1175, 356);
+            tabControl1.Size = new Size(1174, 356);
             tabControl1.TabIndex = 1;
             tabControl1.TabStop = false;
             // 
@@ -78,7 +78,7 @@
             tabPage1.Margin = new Padding(1);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(1);
-            tabPage1.Size = new Size(1167, 323);
+            tabPage1.Size = new Size(1166, 323);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Etiquetas";
             tabPage1.UseVisualStyleBackColor = true;
@@ -99,34 +99,34 @@
             DtgdVwItensPedido.ReadOnly = true;
             DtgdVwItensPedido.RowHeadersWidth = 30;
             DtgdVwItensPedido.ShowEditingIcon = false;
-            DtgdVwItensPedido.Size = new Size(1155, 303);
+            DtgdVwItensPedido.Size = new Size(1154, 303);
             DtgdVwItensPedido.TabIndex = 2;
             DtgdVwItensPedido.MouseDown += DtgdVwItensPedido_MouseDown;
             DtgdVwItensPedido.MouseMove += DtgdVwItensPedido_MouseMove;
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(cmbClient);
+            tabPage2.Controls.Add(txtClient);
             tabPage2.Controls.Add(chkBxCliente);
             tabPage2.Controls.Add(dtgViewAvulso);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Margin = new Padding(1);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(1);
-            tabPage2.Size = new Size(1167, 323);
+            tabPage2.Size = new Size(1166, 323);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Avulso";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // cmbClient
+            // txtClient
             // 
-            cmbClient.Enabled = false;
-            cmbClient.FormattingEnabled = true;
-            cmbClient.Location = new Point(92, 270);
-            cmbClient.Name = "cmbClient";
-            cmbClient.Size = new Size(593, 28);
-            cmbClient.TabIndex = 6;
-            cmbClient.TextChanged += cmbClient_TextChanged;
+            txtClient.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtClient.CharacterCasing = CharacterCasing.Upper;
+            txtClient.Enabled = false;
+            txtClient.Location = new Point(92, 269);
+            txtClient.Name = "txtClient";
+            txtClient.Size = new Size(633, 27);
+            txtClient.TabIndex = 5;
             // 
             // chkBxCliente
             // 
@@ -251,15 +251,15 @@
             // LstVolumes
             // 
             LstVolumes.AllowDrop = true;
-            LstVolumes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            LstVolumes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             LstVolumes.FullRowSelect = true;
             LstVolumes.HeaderStyle = ColumnHeaderStyle.None;
             LstVolumes.LabelWrap = false;
-            LstVolumes.Location = new Point(14, 465);
+            LstVolumes.Location = new Point(4, 459);
             LstVolumes.Margin = new Padding(1);
             LstVolumes.MultiSelect = false;
             LstVolumes.Name = "LstVolumes";
-            LstVolumes.Size = new Size(1152, 382);
+            LstVolumes.Size = new Size(1170, 393);
             LstVolumes.TabIndex = 5;
             LstVolumes.UseCompatibleStateImageBehavior = false;
             LstVolumes.View = View.Details;
@@ -303,13 +303,14 @@
             BoxOrdersOpened.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             BoxOrdersOpened.AutoCompleteSource = AutoCompleteSource.ListItems;
             BoxOrdersOpened.FormattingEnabled = true;
-            BoxOrdersOpened.Location = new Point(84, 10);
+            BoxOrdersOpened.Location = new Point(94, 10);
             BoxOrdersOpened.Margin = new Padding(1);
             BoxOrdersOpened.Name = "BoxOrdersOpened";
-            BoxOrdersOpened.Size = new Size(1081, 28);
+            BoxOrdersOpened.Size = new Size(1070, 28);
             BoxOrdersOpened.TabIndex = 1;
             BoxOrdersOpened.SelectionChangeCommitted += BoxOrdersOpened_SelectionChangeCommitted;
             BoxOrdersOpened.KeyDown += BoxOrdersOpened_KeyDown;
+            BoxOrdersOpened.MouseDown += BoxOrdersOpened_MouseDown;
             // 
             // label1
             // 
@@ -325,7 +326,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1182, 862);
+            ClientSize = new Size(1181, 862);
             Controls.Add(BtnMulti);
             Controls.Add(tabControl1);
             Controls.Add(BtnAll);
@@ -377,6 +378,6 @@
         private DataGridViewTextBoxColumn Obs;
         private DataGridViewTextBoxColumn Null;
         private CheckBox chkBxCliente;
-        private ComboBox cmbClient;
+        private TextBox txtClient;
     }
 }
