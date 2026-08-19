@@ -30,7 +30,7 @@ Aplicação desktop desenvolvida para otimizar o processo logístico de impress�
 
 ## Funcionalidades
 
-- Listagem automática de pedidos abertos
+- Listagem automática de pedidos abertos 
 - Atualização periódica da lista (30 min)
 - Agrupamento de itens por etiqueta via drag-and-drop
 - Geração de múltiplas etiquetas por volume
