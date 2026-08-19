@@ -21,11 +21,11 @@ Aplicação desktop desenvolvida para otimizar o processo logístico de impress�
 
 ## Capturas de Tela
 
-[Tela principal](https://github.com/santosmacagnan/order-label-printing-desktop/blob/fe47ec7a83339d5062b00dc1ec960605e49828b5/ScreenShots/Main%20Screen.png)
+![Tela principal](https://github.com/santosmacagnan/order-label-printing-desktop/blob/fe47ec7a83339d5062b00dc1ec960605e49828b5/ScreenShots/Main%20Screen.png)
 
-[Tela preenchida](https://github.com/santosmacagnan/order-label-printing-desktop/blob/fe47ec7a83339d5062b00dc1ec960605e49828b5/ScreenShots/Main%20screen%20populated.png)
+![Tela preenchida](https://github.com/santosmacagnan/order-label-printing-desktop/blob/fe47ec7a83339d5062b00dc1ec960605e49828b5/ScreenShots/Main%20screen%20populated.png)
 
-[Tela de itens avulsos](https://github.com/santosmacagnan/order-label-printing-desktop/blob/fe47ec7a83339d5062b00dc1ec960605e49828b5/ScreenShots/Individual%20items%20screen.png)
+![Tela de itens avulsos](https://github.com/santosmacagnan/order-label-printing-desktop/blob/fe47ec7a83339d5062b00dc1ec960605e49828b5/ScreenShots/Individual%20items%20screen.png)
 
 ## Funcionalidades
 
