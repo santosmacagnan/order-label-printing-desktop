@@ -21,7 +21,6 @@ Aplicação desktop desenvolvida para otimizar o processo logístico de impress�
 
 ## Capturas de Tela
 
-<!-- TODO: adicionar screenshots da pasta /ScreenShots, ex.: -->
 [Tela principal](https://github.com/santosmacagnan/order-label-printing-desktop/blob/fe47ec7a83339d5062b00dc1ec960605e49828b5/ScreenShots/Main%20Screen.png)
 
 [Tela preenchida](https://github.com/santosmacagnan/order-label-printing-desktop/blob/fe47ec7a83339d5062b00dc1ec960605e49828b5/ScreenShots/Main%20screen%20populated.png)
