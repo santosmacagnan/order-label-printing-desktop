@@ -11,11 +11,10 @@ namespace Etiquetas_Pedidos.Services
         private string order, company;
         public void HeaderLabel(String Client)
         {
-            if (!string.IsNullOrWhiteSpace(Client))
-            {
+
                 order = "";
                 company = Client;
-            }
+
         }
         public void HeaderLabel(ComboBox combo)
         {

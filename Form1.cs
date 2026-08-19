@@ -115,27 +115,36 @@ namespace Etiquetas_Pedidos
         }
         private void TxtBxVolumes_KeyDown(object sender, KeyEventArgs e)
         {
+            
             if (e.KeyData == Keys.Enter)
             {
-                var groups = new FormListView(LstVolumes);
-                int vol = int.Parse(TxtBxVolumes.Text);
-                if (LstVolumes.Columns.Count == 0)
+                if (TxtBxVolumes.Text == "0" || string.IsNullOrWhiteSpace(TxtBxVolumes.Text))
                 {
-                    LstVolumes.Columns.Add("Description", 1000);
-                    LstVolumes.Columns.Add("Quantidade", 200);
-                    LstVolumes.Columns.Add("Casas", 200);
-                    LstVolumes.Columns.Add("Esteira", 200);
-                }
-                groups.AjustGroups(vol);
-                if (vol == 1)
-                {
-                    BtnAll.Enabled = true;
-                    BtnMulti.Enabled = false;
+                    LstVolumes.Clear();
+                    BtnAll.Enabled = false; BtnMulti.Enabled = false;
                 }
                 else
                 {
-                    BtnAll.Enabled = false;
-                    BtnMulti.Enabled = true;
+                    var groups = new FormListView(LstVolumes);
+                    int vol = int.Parse(TxtBxVolumes.Text);
+                    if (LstVolumes.Columns.Count == 0)
+                    {
+                        LstVolumes.Columns.Add("Description", 1000);
+                        LstVolumes.Columns.Add("Quantidade", 200);
+                        LstVolumes.Columns.Add("Casas", 200);
+                        LstVolumes.Columns.Add("Esteira", 200);
+                    }
+                    groups.AjustGroups(vol);
+                    if (vol == 1)
+                    {
+                        BtnAll.Enabled = true;
+                        BtnMulti.Enabled = false;
+                    }
+                    else
+                    {
+                        BtnAll.Enabled = false;
+                        BtnMulti.Enabled = true;
+                    }
                 }
             }
         }
@@ -220,7 +229,10 @@ namespace Etiquetas_Pedidos
             {
                 print.HeaderLabel(txtClient.Text);
             }
-            else
+            else if(chkBxCliente.Checked == false && BoxOrdersOpened.Text == "Selecione um pedido -  ")
+            {
+                print.HeaderLabel("" );
+            }else
             {
                 print.HeaderLabel(BoxOrdersOpened);
             }
@@ -299,7 +311,7 @@ namespace Etiquetas_Pedidos
             var r = dtgViewAvulso.Rows[rowIndex];
 
             string[] dados = [
-                              $"{r.Cells["Code"].Value} -  {r.Cells["Description"].Value}",
+                              $"{r.Cells["Code"].Value} - {r.Cells["Description"].Value}",
                               $"{r.Cells["Quantity"].Value} {r.Cells["Unit"].Value}",
                               r.Cells["Obs"].Value?.ToString() ?? "",
                               r.Cells["Null"].Value?.ToString() ??""
